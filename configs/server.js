@@ -21,6 +21,7 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use("/salesManagement/v1/auth", authRoutes)
+    app.use("/salesManagement/v1/user", userRoutes)
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
@@ -39,7 +40,7 @@ export const initServer = () => {
         middlewares(app)
         conectarDB()
         routes(app)
-        const port = process.env.PORT || 3003
+        const port = process.env.PORT || 3006
         app.listen(port, () => {
             console.log(`Server running on port ${port} matutina`)
         })
