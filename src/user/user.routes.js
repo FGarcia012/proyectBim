@@ -1,9 +1,16 @@
-import { Router } from "express"
-import { getUserById } from "./user.controller.js"
-import { getUserByIdValidator } from "../middlewares/user-validators.js"
+import { Router } from "express";
+import { updatePassword, updateUser, updateProfilePicture, deleteUser } from "./user.controller.js";
+import { updatePasswordValidator, updateUserValidator, updateProfilePictureValidator, deleteUserValidator, confirmDelete } from "../middlewares/user-validators.js";
+import { uploadProfilePicture } from "../middlewares/multer-uploads.js";
 
-const router = Router()
+const router = Router();
 
-router.get("/findUser/:uid", getUserByIdValidator, getUserById)
+router.patch("/updatePassword/:uid", updatePasswordValidator, updatePassword);
 
-export default router
+router.put("/updateUser/:uid", updateUserValidator, updateUser);
+
+router.patch("/updateProfilePicture/:uid", uploadProfilePicture.single("profilePicture"), updateProfilePictureValidator, updateProfilePicture);
+
+router.delete("/deleteUser/:uid", deleteUserValidator, confirmDelete, deleteUser);
+
+export default router;
