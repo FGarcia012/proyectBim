@@ -10,17 +10,19 @@ const options = {
             description: 'API para un sistema de gestion de ventas',
             module: {
                 name: 'Fredy Alexander García Sicajau',
-                email: 'fgarcia-2023012@kinal.edu.gt'
+                email: 'alexander.garcia.sicajau@gmail.com'
             }
         },
         servers: [
             {
-                url: 'http://127.0.0.1:3003/salesManagement/v1'
+                url: 'http://127.0.0.1:3006/salesManagement/v1'
             }
         ]
     },
     apis:[
-        './src/auth/auth.routes.js'
+        './src/auth/auth.routes.js',
+        './src/user/user.routes.js',
+        './src/product/product.routes.js'
     ]
 }
 
