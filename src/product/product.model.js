@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose"
 
-const productSchema = new Schema({
+const productSchema = Schema({
     name:{
         type: String,
         required: [true, 'Name is required'],
@@ -19,10 +19,20 @@ const productSchema = new Schema({
     category:{
         type: Schema.Types.ObjectId,
         ref: 'category',
+        default: 'Articulos',
         required: [true, 'Category is required']
     },
     image:{
         type: String,
+    },
+    inventory:{
+        type: Number,
+        required: [true, 'Inventory is required'],
+        min: [0, 'Inventory cannot be negative']
+    },
+    sales:{
+        type: Number,
+        default: 0
     },
     status:{
         type: Boolean,
