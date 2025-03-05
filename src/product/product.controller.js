@@ -1,9 +1,9 @@
 import Product from "./product.model.js";
-import fs from "fs/promises"
-import {join, dirname} from "path"
-import { fileURLToPath } from "url"
+import fs from "fs/promises";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const createProduct = async (req, res) => {
     try {
@@ -30,17 +30,17 @@ export const updateProductImage = async (req, res) => {
         const { pid } = req.params;
         let newProductImage = req.file ? req.file.filename : null;
 
-        const product = await Product.findById(pid)
-        if(!newProductImage){
+        const product = await Product.findById(pid);
+        if (!newProductImage) {
             return res.status(400).json({
                 success: false,
                 message: 'No se proporciono ningun archivo'
-            })
+            });
         }
 
-        if(product.image){
-            const oldProductImage = join(__dirname, "../../public/uploads/product-images", product.image)
-            await fs.unlink(oldProductImage)
+        if (product.image) {
+            const oldProductImage = join(__dirname, "../../public/uploads/product-images", product.image);
+            await fs.unlink(oldProductImage);
         }
         product.image = newProductImage;
         await product.save();
@@ -49,41 +49,41 @@ export const updateProductImage = async (req, res) => {
             success: true,
             message: 'Product image has been updated',
             product
-        })
+        });
     } catch (err) {
         return res.status(500).json({
             success: false,
             message: 'Error al actualizar el producto',
             error: err.message
-        })
+        });
     }
-}
+};
 
 export const updateProduct = async (req, res) => {
     try {
-        const { pid } = req.params
-        const data = req.body
+        const { pid } = req.params;
+        const data = req.body;
 
-        const product = await Product.findByIdAndUpdate(pid, data, { new: true })
+        const product = await Product.findByIdAndUpdate(pid, data, { new: true });
 
         return res.status(200).json({
             success: true,
             message: 'Product updated',
             product
-        })
+        });
     } catch (err) {
-        return res.status (500).json ({
+        return res.status(500).json({
             success: false,
             message: 'Error updating product',
             error: err.message
-        })
+        });
     }
-}
+};
 
 export const getProduct = async (req, res) => {
     try {
         const { pid } = req.params;
-        const product = await Product.findById(pid);
+        const product = await Product.findById(pid).populate('category', 'name');
 
         if (!product) {
             return res.status(404).json({
@@ -103,11 +103,11 @@ export const getProduct = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const getProducts = async (req, res) => {
     try {
-        const products = await Product.find();
+        const products = await Product.find().populate('category', 'name');
 
         return res.status(200).json({
             success: true,
@@ -120,7 +120,7 @@ export const getProducts = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const deleteProduct = async (req, res) => {
     try {
@@ -147,7 +147,7 @@ export const deleteProduct = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const getOutOfStockProducts = async (req, res) => {
     try {
@@ -164,7 +164,7 @@ export const getOutOfStockProducts = async (req, res) => {
             error: err.message
         });
     }
-}
+};
 
 export const getTopSellingProducts = async (req, res) => {
     try {
@@ -181,4 +181,4 @@ export const getTopSellingProducts = async (req, res) => {
             error: err.message
         });
     }
-}
+};

@@ -1,4 +1,4 @@
-/* import Category from "../category/category.model.js";
+import Category from "../category/category.model.js";
 
 export const createDefaultCategory = async () => {
     try {
@@ -18,4 +18,3 @@ export const createDefaultCategory = async () => {
         console.error("Error creating default category:", err.message);
     }
 };
-*/
