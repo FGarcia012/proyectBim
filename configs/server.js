@@ -8,9 +8,10 @@ import { dbConnection } from "./mongo.js"
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import productRoutes from "../src/product/product.routes.js"
+import categoryRoutes from "../src/category/category.routes.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import { createAdminUser } from "../src/utils/createAdminuser.js"
-// import { createCategory } from "../src/utils/createCategory.js"
+import { createDefaultCategory } from "../src/utils/createCategory.js"
 import { swaggerDocs, swaggerUi } from "../configs/swagger.js"
 
 const middlewares = (app) => {
@@ -26,6 +27,7 @@ const routes = (app) => {
     app.use("/salesManagement/v1/auth", authRoutes)
     app.use("/salesManagement/v1/user", userRoutes)
     app.use("/salesManagement/v1/product", productRoutes)
+    app.use("/salesManagement/v1/category", categoryRoutes)
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
@@ -45,7 +47,7 @@ export const initServer = () => {
         conectarDB()
         routes(app)
         createAdminUser()
-//        createCategory()
+        createDefaultCategory()
         const port = process.env.PORT || 3006
         app.listen(port, () => {
             console.log(`Server running on port ${port} matutina`)
