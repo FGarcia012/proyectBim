@@ -36,3 +36,10 @@ export const categoryExists = async (cid = " ") => {
         throw new Error("No existe la categoría con el ID proporcionado")
     }
 }
+
+export const isUserRole = async (uid) => {
+    const user = await User.findById(uid);
+    if (user.role !== 'USER') {
+        throw new Error("Administrators can only modify users with the role 'USER'");
+    }
+};
