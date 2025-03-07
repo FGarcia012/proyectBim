@@ -1,4 +1,5 @@
 import Product from "./product.model.js";
+import Category from "../category/category.model.js";
 import fs from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -10,6 +11,16 @@ export const createProduct = async (req, res) => {
         const data = req.body;
         let image = req.file ? req.file.filename : null;
         data.image = image;
+
+        if (!data.category) {
+            const defaultCategory = await Category.findOne({ name: "Articulos" });
+            if (!defaultCategory) {
+                return res.status(500).json({
+                    message: 'Default category not found'
+                });
+            }
+            data.category = defaultCategory._id;
+        }
 
         const product = await Product.create(data);
 
