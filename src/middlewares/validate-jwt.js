@@ -3,43 +3,42 @@ import User from "../user/user.model.js";
 
 export const validateJWT = async (req, res, next) => {
     try {
-        let token = req.body.token || req.query.token || req.headers['authorization']
+        let token = req.body.token || req.query.token || req.headers['authorization'];
 
-        if (!token){
+        if (!token) {
             return res.status(400).json({
                 success: false,
                 message: 'No existe token en la petición'
-            })
+            });
         }
 
-        token = token.replace(/^Bearer\s+/, "")
+        token = token.replace(/^Bearer\s+/, "");
 
-        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
+        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
 
-        const user = await User.find({_id: uid})
+        const user = await User.findById(uid);
 
-        if(!user){
+        if (!user) {
             return res.status(400).json({
                 success: false,
                 message: 'El usuario no existe en la base de datos'
-            })
+            });
         }
 
-        if(user){
+        if (!user.status) {
             return res.status(400).json({
                 success: false,
-                message: 'Usuario desactivado previamente' 
-            })
+                message: 'Usuario desactivado previamente'
+            });
         }
 
-        req.usuario = user
-        next()
+        req.usuario = user;
+        next();
     } catch (err) {
         return res.status(500).json({
             success: false,
             message: 'Error al validar el token',
-            error: err
-
-        })
+            error: err.message
+        });
     }
-}
+};
