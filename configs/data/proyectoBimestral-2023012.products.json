@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "67ca4263bccdf2874e30b64a"
+  },
+  "name": "Television",
+  "description": "pantalla de 64 pulgadas",
+  "price": 8000,
+  "category": {
+    "$oid": "67c7e694c66baba7d21b6eb6"
+  },
+  "image": null,
+  "inventory": 99,
+  "sales": 25,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-07T00:48:35.650Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:54:56.338Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ca4316bccdf2874e30b656"
+  },
+  "name": "peluche de gato",
+  "description": "peluche de 55 cm",
+  "price": 2000,
+  "category": {
+    "$oid": "67c7e694c66baba7d21b6eb6"
+  },
+  "image": "astronauta-1741308694516.jpg",
+  "inventory": 60,
+  "sales": 50,
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-07T00:51:34.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:58:55.626Z"
+  }
+}]

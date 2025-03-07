@@ -1,6 +1,11 @@
 import Cart from "./cart.model.js";
 import Product from "../product/product.model.js";
-import Order from "../order/order.model.js"; // Asegúrate de importar el modelo Order
+import Order from "../order/order.model.js";
+import { generateInvoice } from "../utils/invoiceGenerator.js";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const addToCart = async (req, res) => {
     try {
@@ -8,7 +13,11 @@ export const addToCart = async (req, res) => {
         const { product, quantity } = data;
         const uid = req.usuario._id;
 
-        const cart = await Cart.findOne({ user: uid }) || new Cart({ user: uid, products: [] });
+        const cart = await Cart.findOne({ user: uid });
+
+        if (!cart) {
+            cart = new Cart({ user: uid, products: [] });
+        }
 
         const productIndex = cart.products.findIndex(p => p.product.toString() === product);
 
@@ -64,13 +73,24 @@ export const purchasingProcess = async (req, res) => {
 
         await order.save();
 
+        for (const item of cart.products) {
+            const product = await Product.findById(item.product._id);
+            product.inventory -= item.quantity;
+            product.sales += item.quantity;
+            await product.save();
+        }
+
         cart.products = [];
         await cart.save();
+
+        const invoicePath = join(__dirname, "../../public/uploads/invoices-pdf", `invoice-${order._id}.pdf`);
+        generateInvoice(order, invoicePath);
 
         return res.status(200).json({
             success: true,
             message: 'Checkout completed',
-            order
+            order,
+            invoicePath 
         });
     } catch (err) {
         return res.status(500).json({
