@@ -10,8 +10,7 @@ export const generateInvoice = (order, path) => {
 
     doc.fontSize(12).text(`Order ID: ${order._id}`, { align: 'left' });
     doc.text(`Date: ${new Date(order.createdAt).toLocaleDateString()}`, { align: 'left' });
-    doc.text(`User: ${order.user.name}`, { align: 'left' });
-    doc.text(`Email: ${order.user.email}`, { align: 'left' });
+    doc.text(`User ID: ${order.user}`, { align: 'left' });
 
     doc.moveDown();
     doc.text('Products:', { align: 'left' });
