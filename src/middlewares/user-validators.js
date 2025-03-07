@@ -1,5 +1,5 @@
 import { body, param } from "express-validator";
-import { emailExists, usernameExists, userExists } from "../helpers/db-validators.js";
+import { emailExists, usernameExists, userExists, isSameUserOrAdmin } from "../helpers/db-validators.js";
 import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
@@ -47,7 +47,7 @@ export const updateUserValidator = [
     validateJWT,
     param("uid").isMongoId().withMessage("No es un ID válido"),
     param("uid").custom(userExists),
-    param("uid").custom(isUserRole),
+    param("uid").custom((uid, { req }) => isSameUserOrAdmin(uid, req)),
     validarCampos,
     handleErrors
 ];
@@ -65,7 +65,7 @@ export const deleteUserValidator = [
     validateJWT,
     param("uid").isMongoId().withMessage("No es un id valido"),
     param("uid").custom(userExists),
-    param("uid").custom(isUserRole),
+    param("uid").custom((uid, { req }) => isSameUserOrAdmin(uid, req)),
     validarCampos,
     handleErrors
 ];
