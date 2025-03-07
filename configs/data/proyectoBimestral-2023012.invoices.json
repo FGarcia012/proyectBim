@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "67ca6bf876aa958fbd2ba4ae"
+  },
+  "user": {
+    "$oid": "67c7c8d17fb8d161bd4069f6"
+  },
+  "products": [
+    {
+      "product": {
+        "$oid": "67ca4316bccdf2874e30b656"
+      },
+      "quantity": 2,
+      "_id": {
+        "$oid": "67ca6bf876aa958fbd2ba4af"
+      }
+    },
+    {
+      "product": {
+        "$oid": "67ca4263bccdf2874e30b64a"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "67ca6bf876aa958fbd2ba4b0"
+      }
+    }
+  ],
+  "total": 12000,
+  "status": "pending",
+  "createdAt": {
+    "$date": "2025-03-07T03:46:00.187Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:46:00.187Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ca6c207c2221078370ee6c"
+  },
+  "user": {
+    "$oid": "67c7c8d17fb8d161bd4069f6"
+  },
+  "products": [
+    {
+      "product": {
+        "$oid": "67ca4316bccdf2874e30b656"
+      },
+      "quantity": 2,
+      "_id": {
+        "$oid": "67ca6c207c2221078370ee6d"
+      }
+    },
+    {
+      "product": {
+        "$oid": "67ca4263bccdf2874e30b64a"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "67ca6c207c2221078370ee6e"
+      }
+    }
+  ],
+  "total": 12000,
+  "status": "pending",
+  "createdAt": {
+    "$date": "2025-03-07T03:46:40.553Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:46:40.553Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ca6dc8453193576da5d404"
+  },
+  "user": {
+    "$oid": "67c7c8d17fb8d161bd4069f6"
+  },
+  "products": [
+    {
+      "product": {
+        "$oid": "67ca4316bccdf2874e30b656"
+      },
+      "quantity": 10,
+      "_id": {
+        "$oid": "67ca6e10453193576da5d424"
+      }
+    },
+    {
+      "product": {
+        "$oid": "67ca4263bccdf2874e30b64a"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "67ca6e10453193576da5d425"
+      }
+    }
+  ],
+  "total": 28000,
+  "status": "pending",
+  "createdAt": {
+    "$date": "2025-03-07T03:53:44.085Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:54:56.342Z"
+  }
+}]

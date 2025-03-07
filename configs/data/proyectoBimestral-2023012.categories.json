@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "67c7e694c66baba7d21b6eb6"
+  },
+  "name": "Articulos",
+  "createdAt": {
+    "$date": "2025-03-05T05:52:20.730Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T05:52:20.730Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ca44cabccdf2874e30b65f"
+  },
+  "name": "Electronicos",
+  "createdAt": {
+    "$date": "2025-03-07T00:58:50.665Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T00:58:50.665Z"
+  }
+}]

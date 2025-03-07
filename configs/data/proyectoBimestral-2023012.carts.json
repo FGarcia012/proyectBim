@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "67ca4753a94666192907d93a"
+  },
+  "user": {
+    "$oid": "67c7c8d17fb8d161bd4069f6"
+  },
+  "products": [],
+  "createdAt": {
+    "$date": "2025-03-07T01:09:39.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:23:14.170Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ca68400e781e49fcbefe17"
+  },
+  "user": {
+    "$oid": "67ca67ff0e781e49fcbefe11"
+  },
+  "products": [],
+  "createdAt": {
+    "$date": "2025-03-07T03:30:08.172Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-07T03:58:55.630Z"
+  }
+}]

@@ -1,0 +1,1029 @@
+{
+	"info": {
+		"_postman_id": "6d4f86b2-a375-4d9c-9a81-78d26d42afaa",
+		"name": "proyectBim",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37658894"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "jose",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "herrera",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "zodialkiller",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jherrera@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "EYQ/MSm5.!8MaCc",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/alexa/OneDrive/Escritorio/Personal/astronauta.jpg"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"jherrera@kinal.edu.gt\",\r\n  \"password\": \"EYQ/MSm5.!8MaCc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePassword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"currentPassword\": \"EYQ/MSm5.!8MaCc\",\r\n  \"newPassword\": \"PassWord!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/user/updatePassword/67c5ca200ebd25e740a2c574",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"user",
+								"updatePassword",
+								"67c5ca200ebd25e740a2c574"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John\",\r\n  \"surname\": \"Doe\",\r\n  \"username\": \"johndoe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/user/updateUser/67c5ca200ebd25e740a2c574",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"user",
+								"updateUser",
+								"67c5ca200ebd25e740a2c574"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProfilePicture",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/alexa/OneDrive/Escritorio/Personal/astronauta.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/user/updateProfilePicture/67c5ca200ebd25e740a2c574",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"user",
+								"updateProfilePicture",
+								"67c5ca200ebd25e740a2c574"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"confirm\" : \"yes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/user/deleteUser/67c5df9dee66803aec23ae04",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"user",
+								"deleteUser",
+								"67c5df9dee66803aec23ae04"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "addProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Television",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "pantalla de 64 pulgadas",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "8000",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/alexa/OneDrive/Escritorio/Personal/astronauta.jpg"
+								},
+								{
+									"key": "inventory",
+									"value": "80",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/createProduct",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"createProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateImageProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/alexa/OneDrive/Escritorio/Personal/astronauta.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/updateImage/67ca3f32bccdf2874e30b637",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"updateImage",
+								"67ca3f32bccdf2874e30b637"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"peluce de gato\",\r\n    \"description\" : \"Es un simple peluche\",\r\n    \"price\" : \"500\",\r\n    \"category\" : \"67c7e694c66baba7d21b6eb6\",\r\n    \"inventory\" : \"70\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/updateProduct/67ca3f32bccdf2874e30b637",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"updateProduct",
+								"67ca3f32bccdf2874e30b637"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/getProduct/67ca3f32bccdf2874e30b637",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"getProduct",
+								"67ca3f32bccdf2874e30b637"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/getProducts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"getProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/deleteProduct/67ca3f32bccdf2874e30b637",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"deleteProduct",
+								"67ca3f32bccdf2874e30b637"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "outOfStockProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/outOfStockProducts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"outOfStockProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "topSellingProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDY3MDMsImV4cCI6MTc0MTMxMDMwM30.kqKTk-BbDUb-W4CrOR__-VAfxO3GYqwFz3ws9xa__dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/product/topSellingProducts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"product",
+								"topSellingProducts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "addCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDkwMzMsImV4cCI6MTc0MTMxMjYzM30.BIIx5ejA4baCTSzI7iv4jAUyBNQcvXdSS0UwuaggftI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Para la Casa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/category/addCategory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"category",
+								"addCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDkwMzMsImV4cCI6MTc0MTMxMjYzM30.BIIx5ejA4baCTSzI7iv4jAUyBNQcvXdSS0UwuaggftI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/category/getCategories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"category",
+								"getCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDkwMzMsImV4cCI6MTc0MTMxMjYzM30.BIIx5ejA4baCTSzI7iv4jAUyBNQcvXdSS0UwuaggftI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Domesticos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/category/updateCategory/67ca44dfbccdf2874e30b662",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"category",
+								"updateCategory",
+								"67ca44dfbccdf2874e30b662"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMDkwMzMsImV4cCI6MTc0MTMxMjYzM30.BIIx5ejA4baCTSzI7iv4jAUyBNQcvXdSS0UwuaggftI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/category/deleteCategory/67ca44dfbccdf2874e30b662",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"category",
+								"deleteCategory",
+								"67ca44dfbccdf2874e30b662"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "addToCart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhNjdmZjBlNzgxZTQ5ZmNiZWZlMTEiLCJpYXQiOjE3NDEzMTgxNzIsImV4cCI6MTc0MTMyMTc3Mn0.bxsys1PU4fuJtn0lPFAji0U78oIvalP4QFtXY637phg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\" : \"67ca67ff0e781e49fcbefe11\",\r\n    \"product\": \"67ca4316bccdf2874e30b656\",\r\n    \"quantity\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/cart/addToCart",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"cart",
+								"addToCart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BuyCart",
+			"item": [
+				{
+					"name": "purchasingProcess",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NhNjdmZjBlNzgxZTQ5ZmNiZWZlMTEiLCJpYXQiOjE3NDEzMTgxNzIsImV4cCI6MTc0MTMyMTc3Mn0.bxsys1PU4fuJtn0lPFAji0U78oIvalP4QFtXY637phg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/cart/purchasingProcess",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"cart",
+								"purchasingProcess"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PurchaseHistory",
+			"item": [
+				{
+					"name": "orderHistory",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/order/orderHistory/67c7c8d17fb8d161bd4069f6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"order",
+								"orderHistory",
+								"67c7c8d17fb8d161bd4069f6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "addInvoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMTg5OTMsImV4cCI6MTc0MTMyMjU5M30.a2vtLT9wdgg8LkJI8LI_K_hFzK4qq3Xfc7gzpEiJVrM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"67c7c8d17fb8d161bd4069f6\",\r\n    \"products\": [\r\n        {\r\n            \"product\": \"67ca4316bccdf2874e30b656\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"product\": \"67ca4263bccdf2874e30b64a\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/invoice/createInvoice",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"invoice",
+								"createInvoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getInvoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMTg5OTMsImV4cCI6MTc0MTMyMjU5M30.a2vtLT9wdgg8LkJI8LI_K_hFzK4qq3Xfc7gzpEiJVrM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/invoice/getInvoicesByUser/67c7c8d17fb8d161bd4069f6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"invoice",
+								"getInvoicesByUser",
+								"67c7c8d17fb8d161bd4069f6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateInvoice",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3Yzg2ZTdmYjhkMTYxYmQ0MDY5ZWUiLCJpYXQiOjE3NDEzMTg5OTMsImV4cCI6MTc0MTMyMjU5M30.a2vtLT9wdgg8LkJI8LI_K_hFzK4qq3Xfc7gzpEiJVrM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"67ca67ff0e781e49fcbefe11\",\r\n    \"products\": [\r\n        {\r\n            \"product\": \"67ca4316bccdf2874e30b656\",\r\n            \"quantity\": 10\r\n        },\r\n        {\r\n            \"product\": \"67ca4263bccdf2874e30b64a\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3006/salesManagement/v1/invoice/updateInvoice/67ca6dc8453193576da5d404",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3006",
+							"path": [
+								"salesManagement",
+								"v1",
+								"invoice",
+								"updateInvoice",
+								"67ca6dc8453193576da5d404"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
