@@ -18,7 +18,6 @@ export const validateJWT = async (req, res, next) => {
         console.log(`Token uid: ${uid}`);
 
         const user = await User.findById(uid);
-        console.log(`User found: ${user}`);
 
         if (!user) {
             return res.status(400).json({
